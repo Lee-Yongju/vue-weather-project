@@ -1,11 +1,15 @@
-<script setup></script>
+<script setup>
+import WeatherMockup from './components/WeatherMockup.vue'
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <div class="app-container">
+    <h2>과제 1: 날씨 (Mockup)</h2>
+    <hr />
+    <WeatherMockup />
+  </div>
 </template>
 
-<style scoped></style>
+<style>
+@import '@/assets/excercise.css';
+</style>
