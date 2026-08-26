@@ -1,44 +1,71 @@
 # weather-project
 
-This template should help get you started developing with Vue 3 in Vite.
+SKALA vue.js 학습을 위한 Repository 입니다.
+Vue Compositoin API 문법, directive, bind등을 단계별로 실습힙니다.
 
-## Recommended IDE Setup
+---
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 기술 스택
 
-## Recommended Browser Setup
+- **Framework**: Vue 3 (Composition API / `<script setup>`)
+- **Build Tool**: Vite
+- **Language / Style**: JavaScript, CSS
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+---
 
-## Customize configuration
+## 파일 구조
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+```
+.
+├── eslint.config.js
+├── index.html
+├── jsconfig.json
+├── package-lock.json
+├── package.json
+├── README.md
+├── src
+│   ├── App.vue
+│   ├── assets
+│   │   ├── base.css
+│   │   ├── excercise.css
+│   │   └── main.css
+│   ├── components
+│   │   └── exercise
+│   │       ├── WeatherComposition.vue
+│   │       └── WeatherMockup.vue
+│   ├── main.js
+│   ├── router
+│   │   └── index.js
+│   └── stores
+│       └── counter.js
+└── vite.config.js
+```
 
-## Project Setup
+---
 
-```sh
+## 주요 학습 및 파일 설명
+
+### 1. `WeatherMockup.vue`
+
+기본적인 UI 레이아웃과 반응형 상태(`ref`)의 기초 구조를 잡는 Mockup 컴포넌트입니다.
+
+- `searchQuery`: 사용자가 입력한 검색어 상태
+- `weatherList`: 도시별 기본 날씨 목업 데이터 리스트
+- `selectedCityInfo`: 현재 선택된 도시의 세부 정보 상태
+
+### 2. `WeatherComposition.vue`
+
+Mockup 구조를 바탕으로 실제 검색, 선택, 데이터 렌더링 동작을 구현한 완성형 컴포넌트입니다.
+
+- 디렉티브 활용 (`v-model`, `v-for`, `v-if`, `:style` 등)
+- 반응형 데이터 조작 및 이벤트 핸들링
+
+## 프로젝트 실행 방법
+
+```bash
+# 의존성 패키지 설치
 npm install
-```
 
-### Compile and Hot-Reload for Development
-
-```sh
+# 로컬 개발 서버 실행
 npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```
