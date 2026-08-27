@@ -1,53 +1,59 @@
 <script setup>
-import { ref, computed, watch } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useConfigStore } from '@/stores/configStore'
-import { useCityStore } from '@/stores/cityStore'
 import axios from 'axios'
 
 const route = useRoute()
 const router = useRouter()
 const configStore = useConfigStore()
-const cityStore = useCityStore()
 
 const cityData = ref(null)
 const isLoading = ref(false)
 
-const fetchCityDetail = async (id) => {
-  const targetCity = cityStore.cities.find((c) => c.id === id)
-  if (!targetCity) {
-    cityData.value = null
-    return
-  }
-
-  isLoading.value = true
-  try {
-    const API_KEY = import.meta.env.VITE_WEATHER_API_KEY
-    const response = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${targetCity.english}&appid=${API_KEY}&units=metric&lang=kr`,
-    )
-    const raw = response.data
-
-    cityData.value = {
-      name: targetCity.name,
-      temp: raw.main.temp,
-      status: raw.weather[0].description,
-      humidity: `${raw.main.humidity}%`,
-      wind: `${raw.wind.speed} m/s`,
-    }
-  } catch (error) {
-    console.error('상세 정보 로딩 중 네트워크 에러 발생:', error)
-    cityData.value = null
-  } finally {
-    isLoading.value = false
-  }
+const cityMapping = {
+  city_01: {
+    english: 'seoul',
+    korean: '대한민국 서울특별시',
+  },
+  city_02: {
+    english: 'suwon',
+    korean: '경기도 수원시 영통구',
+  },
+  city_03: {
+    english: 'busan',
+    korean: '부산광역시 해운대구',
+  },
 }
 
-watch(
-  () => route.params.cityId,
-  (id) => fetchCityDetail(id),
-  { immediate: true },
-)
+onMounted(async () => {
+  const id = route.params.cityId
+  const targetCity = cityMapping[id]
+
+  if (targetCity) {
+    isLoading.value = true
+    try {
+      const API_KEY = import.meta.env.VITE_WEATHER_API_KEY
+      const reponse = await axios.get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${targetCity.english}&appid=${API_KEY}&units=metric&lang=kr`,
+      )
+
+      const raw = reponse.data
+
+      cityData.value = {
+        name: targetCity.korean,
+        temp: raw.main.temp,
+        status: raw.weather[0].description,
+        humidity: `${raw.main.humidity}%`,
+        wind: `${raw.wind.speed} m/s`,
+      }
+    } catch (error) {
+      console.error('상세 정보 로딩 중 네트워크 에러 발생:', error)
+    } finally {
+      isLoading.value = false
+    }
+  }
+})
 
 const diplayTemp = computed(() => {
   if (!cityData.value) return 0
