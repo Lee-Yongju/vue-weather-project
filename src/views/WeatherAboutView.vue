@@ -10,7 +10,7 @@ const handleGoHome = () => {
 
 <template>
   <div>
-    <h3>ℹ️ 서비스 소개</h3>
+    <h3>서비스 소개</h3>
     <hr />
 
     <div class="description-box">

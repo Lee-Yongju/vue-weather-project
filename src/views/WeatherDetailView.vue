@@ -90,7 +90,7 @@ const diplayTemp = computed(() => {
       </div>
     </template>
 
-    <button @click="router.push('/')" class="back-btn">메인 대시보드로 돌아가기</button>
+    <el-button @click="router.push('/')" class="back-btn">메인 대시보드로 돌아가기</el-button>
   </div>
 </template>
 
