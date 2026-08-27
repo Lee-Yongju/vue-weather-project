@@ -3,6 +3,9 @@
 // import WeatherComposition from './components/exercise/WeatherComposition.vue'
 // import WeatherParent from './components/exercise/WeatherParent.vue'
 import UnitToggler from './components/exercise/UnitToggler.vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
 </script>
 
 <template>
@@ -115,7 +118,12 @@ import UnitToggler from './components/exercise/UnitToggler.vue'
         <RouterLink to="/" class="navi-item">날씨 대시보드</RouterLink>
         <span class="divider">|</span>
         <RouterLink to="/about" class="navi-item">서비스 소개</RouterLink>
-        <UnitToggler />
+        <UnitToggler
+          :style="{
+            opacity: route.name === 'WeatherAbout' ? 0 : 1,
+            pointerEvents: route.name === 'WeatherAbout' ? 'none' : 'auto',
+          }"
+        />
       </nav>
       <main>
         <RouterView />

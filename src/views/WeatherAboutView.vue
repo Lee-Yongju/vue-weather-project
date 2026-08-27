@@ -19,13 +19,18 @@ const handleGoHome = () => {
         대시보드 시스템입니다.
       </p>
       <ul>
+        <li>Vue Router를 활용한 SPA 구조 설계</li>
+        <li><code>components/views/</code>폴더 내부의 뷰 컴포넌트</li>
         <li><code>components/exercise/</code> 폴더 내부의 독립 부품 연동</li>
         <li>클라이언트 사이드 라우팅을 통한 새로고침 없는 화면 전환</li>
         <li>URL 쿼리 스트링 매핑을 활용한 실시간 검색 상태 동기화</li>
+        <li>OpenWeatherMap API를 통한 실시간 날씨 정보 제공</li>
+        <li>Pinia를 활용한 글로벌 상태 관리</li>
+        <li>Element Plus UI 라이브러리 활용</li>
       </ul>
     </div>
 
-    <button @click="handleGoHome" class="home-btn">대시보드 홈으로 이동</button>
+    <el-button @click="handleGoHome" class="home-btn">대시보드 홈으로 이동</el-button>
   </div>
 </template>
 
@@ -59,7 +64,7 @@ code {
   width: 100%;
   margin-top: 15px;
   padding: 10px;
-  background-color: #3498db;
+  background-color: #56a9e0;
   color: white;
   border: none;
   border-radius: 4px;

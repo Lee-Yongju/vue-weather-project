@@ -92,17 +92,21 @@ const handleAddCity = async () => {
     </BaseDashboardCard>
 
     <BaseDashboardCard>
-      <h3>지역별 날씨 현황</h3>
+      <div class="section-header">
+        <h3>지역별 날씨 현황</h3>
 
-      <el-button type="success" @click="isAddDialogVisible = true">+ 도시 추가</el-button>
+        <el-button type="success" size="small" @click="isAddDialogVisible = true"
+          >+ 도시 추가</el-button
+        >
+      </div>
 
       <el-dialog v-model="isAddDialogVisible" title="새 도시 추가" width="360px">
         <el-form :model="newCityForm" label-width="80px">
           <el-form-item label="한글 이름">
-            <el-input v-model="newCityForm.name" placeholder="예: 서울" />
+            <el-input v-model="newCityForm.name" placeholder="도시의 한글 이름을 입력하세요" />
           </el-form-item>
           <el-form-item label="영문 이름">
-            <el-input v-model="newCityForm.english" placeholder="예: Seoul" />
+            <el-input v-model="newCityForm.english" placeholder="도시의 영문 이름을 입력하세요." />
           </el-form-item>
         </el-form>
 
@@ -148,5 +152,11 @@ const handleAddCity = async () => {
   color: #2e7d32;
   font-weight: bold;
   border-radius: 6px;
+}
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
 }
 </style>
