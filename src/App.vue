@@ -44,7 +44,7 @@ import UnitToggler from './components/exercise/UnitToggler.vue'
     </div>
   </div> -->
 
-  <div class="app-container">
+  <!-- <div class="app-container">
     <h2>과제 5: 스토어적용</h2>
     <hr />
     <div class="dashboard-wrapper">
@@ -55,12 +55,33 @@ import UnitToggler from './components/exercise/UnitToggler.vue'
         <UnitToggler />
       </nav>
       <main>
-        <!-- <RouterView /> -->
+        <RouterView />
         <RouterView v-slot="{ Component }">
           <KeepAlive>
             <component :is="Component" />
           </KeepAlive>
         </RouterView>
+      </main>
+    </div>
+  </div> -->
+
+  <div class="app-container">
+    <h2>과제 6: Axios적용</h2>
+    <hr />
+    <div class="dashboard-wrapper">
+      <nav class="navigation-bar">
+        <RouterLink to="/" class="navi-item">날씨 대시보드</RouterLink>
+        <span class="divider">|</span>
+        <RouterLink to="/about" class="navi-item">서비스 소개</RouterLink>
+        <UnitToggler />
+      </nav>
+      <main>
+        <RouterView />
+        <!-- <RouterView v-slot="{ Component }">
+          <KeepAlive>
+            <component :is="Component" />
+          </KeepAlive>
+        </RouterView> -->
       </main>
     </div>
   </div>

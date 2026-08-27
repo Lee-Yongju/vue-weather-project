@@ -7,17 +7,18 @@ Vue Compositoin API 문법, directive, bind등을 단계별로 실습힙니다.
 
 ## 기술 스택
 
-- **Framwork**: Vue 3(Composition API / `<script steup>`)
+- **Framework**: Vue 3(Composition API / `<script setup>`)
 - **Build Tool**: Vite
+- **Router / State**: Vue Router, Pinia
 - **Language / Style**: Javascript, CSS
 
 ---
 
 ## 파일 구조
 
-```
+```bash
 .
-├── eslint.config.js
+├── eslint.config.js                    # 주석적으래요
 ├── index.html
 ├── jsconfig.json
 ├── package-lock.json
@@ -31,7 +32,7 @@ Vue Compositoin API 문법, directive, bind등을 단계별로 실습힙니다.
 │   │   └── main.css
 │   ├── components
 │   │   └── exercise
-│   │       ├── WeatherComposition.vue
+│   │       ├── WeatherComposition.vue  # 넵 주석적겠습니다
 │   │       └── WeatherMockup.vue
 │   ├── main.js
 │   ├── router
